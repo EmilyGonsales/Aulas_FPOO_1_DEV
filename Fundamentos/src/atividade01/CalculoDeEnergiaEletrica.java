@@ -1,48 +1,47 @@
 package atividade01;
-
 import java.util.Scanner;
-
 public class CalculoDeEnergiaEletrica {
+ public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        System.out.print("Insira a quantidade de (kw/h )utlizados: ");
+        double consumo = input.nextDouble();
 
-        System.out.print("Informe o nome do produto: ");
-        String nomeProduto = scanner.nextLine();
+        System.out.print("Informe o tipo de instalacao (R para residencia, I para industria, C para comercio): ");
+        char tipoInstalacao = input.next().charAt(0);
 
-        System.out.print("Insira o valor do produto: ");
-        double valorProduto = scanner.nextDouble();
+        double preco = calcularPreco(consumo, tipoInstalacao);
+        System.out.println("O preco a pagar e de: R$" + preco);
 
-        System.out.print("Digite a quantidade do produto: ");
-        int quantidadeProduto = scanner.nextInt();
+        input.close();
+    }
 
-        double valorTotal = valorProduto * quantidadeProduto;
+    public static double calcularPreco(double consumo, char tipoInstalacao) {
+        double preco = 0.0;
 
-        System.out.print("Informe sua forma de pagamento (D para debito, C para credito): ");
-        char formaPagamento = scanner.next().charAt(0);
-
-        if (formaPagamento == 'D' || formaPagamento == 'd') {
-            if (valorTotal <= 100.0) {
-                valorTotal -= valorTotal * 0.05;
+        if (tipoInstalacao == 'R') {
+            if (consumo <= 500) {
+                preco = consumo * 0.40;
             } else {
-                valorTotal -= valorTotal * 0.03;
+                preco = consumo * 0.65;
             }
-            System.out.println("Valor com desconto: R$ " + valorTotal);
-        } else if (formaPagamento == 'C' || formaPagamento == 'c') {
-            System.out.print("Digite o numero de parcelas: ");
-            int numeroParcelas = scanner.nextInt();
-            double valorParcela = valorTotal / numeroParcelas;
-            System.out.println("Valor da parcela: R$ " + valorParcela);
+        } else if (tipoInstalacao == 'I') {
+            if (consumo <= 1000) {
+                preco = consumo * 0.55;
+            } else {
+                preco = consumo * 0.60;
+            }
+        } else if (tipoInstalacao == 'C') {
+            if (consumo <= 5000) {
+                preco = consumo * 0.55;
+            } else {
+                preco = consumo * 0.60;
+            }
         } else {
-            System.out.println("Forma de pagamento invalida.");
+            System.out.println("Tipo de instalacao invalido!");
         }
 
-        System.out.println("Informacoes da compra:");
-        System.out.println("Produto: " + nomeProduto);
-        System.out.println("Valor unitario: R$ " + valorProduto);
-        System.out.println("Quantidade: " + quantidadeProduto);
-        System.out.println("Valor total: R$ " + valorTotal);
-
-        scanner.close();
+        return preco;
     }
 }
+
