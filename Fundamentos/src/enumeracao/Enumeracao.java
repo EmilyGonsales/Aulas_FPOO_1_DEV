@@ -14,6 +14,7 @@ public class Enumeracao {
         pedido.setStatus(StatusEnum.EM_TRANSPORTE.getStatus());
         System.out.println(pedido); 
         pedido.setStatus(StatusEnum.ENTREGUE.getStatus());
+        System.out.println(pedido);
 
 }
 }
