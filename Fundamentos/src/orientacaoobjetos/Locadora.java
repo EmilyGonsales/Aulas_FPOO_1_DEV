@@ -17,6 +17,8 @@ public class Locadora {
         System.out.println(c2);
         double valorLocacaoLancamento = c2.calcularLocacao(3, true);
         System.out.println(" O valor para locação do filme " + "lançamento é: " + valorLocacaoLancamento);
+        c2.validarNome(c2.getNome());
+        c2.verificarEmailDominioGoogle(c2.)
 
     }
 }

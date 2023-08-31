@@ -70,7 +70,14 @@ public class Cliente implements AluguelFilme, CadastroCliente {
 
     @Override
     public boolean verificarEmailDominioGoogle(String email) {
-        return false;
+        if(email.contains("@gmail.com")) {
+            System.out.println("O e-mail " + email + " é do Google");
+            return false;
+        }else{
+            System.out.println("O e-mail " + email + " não é do Google");
+            return false;
+
+        }
     }
 }
 
