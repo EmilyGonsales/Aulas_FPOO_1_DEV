@@ -12,7 +12,7 @@ public class Enumeracao {
         Produtos produto = new Produtos(EnumProdutos.SALGADO, "Esfirra de Frango", 3);
         System.out.println(produto);
         
-        RedesSociais redesocial = new RedesSociais(EnumRedeSociais.TWITTER, "@EmilyGonsales");
+        RedesSociais redesocial = new RedesSociais(EnumRedeSociais.TWITTER, 342345);
         System.out.println(redesocial);
                 
 
